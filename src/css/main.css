@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  color: blue;
+  font-family: "poppins", "sans serif";
+}
+
+.home {
+  margin-top: 200px;
+  margin-left: 40px;
+}
+.home title h1 span {
+  color: lightskyblue;
+}
+.home .cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+.home .cards .card {
+  margin: 20px;
+  gap: 20px;
+  border-radius: 15px;
+  padding: 50px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.home .cards .card h2 {
+  letter-spacing: 1px;
+}
+.home .cards .modal-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+.home .cards .modal-container .show {
+  pointer-events: auto;
+  opacity: 1;
+}
+.home .cards .modal-container .modal {
+  background-color: #fff;
+  width: 600px;
+  max-width: 100%;
+  padding: 30px 50px;
+  border-radius: 5px;
+  text-align: center;
+}
+.home .cards .modal-container .modal h2 {
+  margin: 0;
+}
+.home .cards .modal-container .modal p {
+  font-size: 14px;
+  opacity: 0.7;
+}
+.home .create {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.home .create label {
+  text-align: left;
+  display: block;
+}
+.home .create h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+.home .create input, .home .create textarea, .home .create select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
