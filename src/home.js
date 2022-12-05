@@ -16,7 +16,7 @@ const Home = () => {
           setIsPending(false);
           return setProducts(data);
         });
-    }, 300);
+    }, 500);
   }, []);
   console.log(products);
 
@@ -24,14 +24,15 @@ const Home = () => {
     <div className="home">
       <div className="title">
         <h1>
-          Taki<span>Academy</span>
+          Taki<span className="takiacademy">Academy</span>
         </h1>
-        <p>Il y a  {products?.length}  martiéres</p>
+        <p>Il y a {products?.length} martiéres</p>
       </div>
       {isPending && <Loading />}
 
-      <div>{products && <Cards products={products}></Cards>}
-      <Create></Create>
+      <div className="display">
+        {products && <Cards products={products}></Cards>}
+        <Create></Create>
       </div>
     </div>
   );

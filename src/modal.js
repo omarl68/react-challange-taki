@@ -1,19 +1,26 @@
-const Modal = ({products,open,onClose}) => {
-  const modal_container = document.getElementById("modal_container");
-  const close = document.getElementById("close");
-  close?.addEventListener("click", () => {
-    modal_container.classList.add("show");
-  });
+const Modal = ({ product, setIsOpen, setDeleteProduct }) => {
+  const handleClick = () => {
+    setDeleteProduct((prev) => {
+      console.log("====>>", prev);
+      prev = prev.filter((item) => item.id !== product.id);
+      return prev;
+    });
+    fetch("http://localhost:8000/product/" + product.id, {
+      method: "DELETE",
+    });
+  };
   return (
     <div className="modal-container" id="modal_container">
-      {products.map((product) => (
-        <div className="modal">
-          <h2>{product.title}</h2>
-          <p>{product.description}</p>
-          <button>delete</button>
-          <button id="close">close</button>
-        </div>
-      ))}
+      <div className="modal">
+        <h2>{product.title}</h2>
+        <p>{product.description}</p>
+        <button className="delete" onClick={handleClick}>
+          Supprimer
+        </button>
+        <button className="close" onClick={setIsOpen}>
+          Fermer
+        </button>
+      </div>
     </div>
   );
 };

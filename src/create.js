@@ -3,7 +3,7 @@ import { useState } from "react";
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [author, setAuthor] = useState("");
+  const [description, setDescription] = useState("");
   const [isPending, setIsPending] = useState("false");
 
   const handleSubmit = (e) => {
@@ -11,47 +11,46 @@ const Create = () => {
     const blog = {
       title,
       body,
-      author,
+      description
+      
     };
+    console.log(blog);
     setIsPending(true);
-    fetch("http://localhost:8000/blogs", {
+    fetch("http://localhost:8000/product", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(blog),
     }).then(() => {
-      console.log("new blog added");
+      console.log("new card added");
       setIsPending(false);
     });
   };
   return (
     <div className="create">
-      <h2>Add a New Blog</h2>
+      <h2>Ajouter une matiére</h2>
       <form onSubmit={handleSubmit}>
-        <label> Blog title :</label>
+        <label> nom :</label>
         <input
           type="text"
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <label>Blog body</label>
+          <label>sous titre</label>
         <textarea
           required
           value={body}
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
-        <label>Blog author :</label>
-
-        <select value={author} onChange={(e) => setAuthor(e.target.value)}>
-          <option selected disabled hidden>
-            Choose here
-          </option>
-          <option value="mario">mario</option>
-          <option value="yoshi">yoshi</option>
-          <option value="fathi">fathi</option>
-        </select>
-        {!isPending && <button className="btn">Add Blog</button>}
-        {isPending && <button className="btn">Adding Blog...</button>}
+        <label>description</label>
+        <textarea
+          required
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        ></textarea>
+       
+        {!isPending && <button className="btn">Ajouter</button>}
+        {isPending && <button className="btn">Ajout card ...</button>}
       </form>
     </div>
   );

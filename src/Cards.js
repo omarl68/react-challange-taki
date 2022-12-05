@@ -1,36 +1,17 @@
-import { useState } from "react";
-import Modal from "./modal";
+import React, { useEffect, useState } from "react";
+import Card from "./Card";
 
 const Cards = ({ products }) => {
-  /*   console.log("card", products);
-const open = document.getElementById('open');
-const modal_container = document.getElementById('modal_container');
-const close = document.getElementById('close');
-open?.addEventListener('click',()=>{
-    modal_container.classList.add('show')
-}) 
-close?.addEventListener('click',()=>{
-    modal_container.classList.add('show')
-})  */
-  const [isOpen, setIsOpen] = useState(false);
+  const [deleteProduct, setDeleteProduct] = useState(products);
+  console.log(deleteProduct);
+  useEffect(() => {
+    setDeleteProduct(products);
+  }, [products]);
   return (
     <div className="cards">
-      {products.map((product) => (
-        <div
-          className="card"
-          key={product.id}
-          onClick={() => setIsOpen(true)}
-          id="open"
-        >
-          <h2>{product.title}</h2>
-          <p>{product.body}</p>
-        </div>
+      {deleteProduct?.map((product) => (
+        <Card product={product} setDeleteProduct={setDeleteProduct} />
       ))}
-  {/*     <Modal
-        products={products}
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
-      ></Modal> */}
     </div>
   );
 };
