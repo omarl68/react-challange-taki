@@ -1,16 +1,3 @@
 {
-  "product": [
-    {
-      "id": 4,
-      "title": "dsgsdgsdg",
-      "body": "dsgsdgdg",
-      "description": "sdgsdgs"
-    },
-    {
-      "id": 3,
-      "title": "xcbcxb",
-      "body": "cxbcxbbc",
-      "description": "cxbcxbcxb"
-    }
-  ]
+  "product": []
 }
