@@ -19,12 +19,11 @@
 }
 .home .cards {
   max-width: 1300px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 .home .cards .card {
-  width: fit-content;
   height: fit-content;
   border-radius: 10px;
   padding: 61px 150px;
@@ -33,6 +32,7 @@
 }
 .home .cards .card h2 {
   letter-spacing: 1px;
+  font-size: 35px;
 }
 .home .cards .modal-container {
   z-index: 1000;
@@ -74,7 +74,7 @@
 .home .create {
   max-width: 400px;
   text-align: center;
-  margin-right: 100px;
+  margin-right: 150px;
 }
 .home label {
   text-align: left;
@@ -99,6 +99,7 @@
   display: flex;
   gap: 20px;
   justify-content: space-between;
+  margin-top: 50px;
 }
 
 .btn {

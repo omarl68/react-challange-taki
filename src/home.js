@@ -3,22 +3,20 @@ import { useEffect } from "react";
 import Cards from "./Cards";
 import Loading from "./Loading";
 import Create from "./create";
+
 const Home = () => {
   const [isPending, setIsPending] = useState(true);
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
   useEffect(() => {
-    setTimeout(() => {
-      fetch("http://localhost:8000/product")
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setIsPending(false);
-          return setProducts(data);
-        });
-    }, 500);
+    fetch("http://localhost:8000/product")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setIsPending(false);
+        return setProducts(data);
+      });
   }, []);
-  console.log(products);
 
   return (
     <div className="home">
@@ -32,7 +30,7 @@ const Home = () => {
 
       <div className="display">
         {products && <Cards products={products}></Cards>}
-        <Create></Create>
+        <Create setProducts={setProducts} products={products} />
       </div>
     </div>
   );

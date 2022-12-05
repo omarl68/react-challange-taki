@@ -3,10 +3,9 @@ import Card from "./Card";
 
 const Cards = ({ products }) => {
   const [deleteProduct, setDeleteProduct] = useState(products);
-  console.log(deleteProduct);
-  useEffect(() => {
-    setDeleteProduct(products);
-  }, [products]);
+  useEffect(()=>{
+    setDeleteProduct(products)
+  },[products])
   return (
     <div className="cards">
       {deleteProduct?.map((product) => (

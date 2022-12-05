@@ -1,8 +1,7 @@
 const Modal = ({ product, setIsOpen, setDeleteProduct }) => {
   const handleClick = () => {
     setDeleteProduct((prev) => {
-      console.log("====>>", prev);
-      prev = prev.filter((item) => item.id !== product.id);
+      prev = prev.filter((item) => item?.id !== product?.id);
       return prev;
     });
     fetch("http://localhost:8000/product/" + product.id, {
